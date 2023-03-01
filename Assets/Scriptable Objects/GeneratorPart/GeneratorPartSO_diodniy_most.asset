@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370d217662171294f9c63600ee0f4907, type: 3}
   m_Name: GeneratorPartSO_diodniy_most
   m_EditorClassIdentifier: 
-  namePart: "\u0414\u0438\u043E\u0434\u043D\u044B\u0439 \u043C\u043E\u0441\u0442"
+  namePart: "\u0414\u0438\u043E\u0434\u043D\u044B\u0439 \u043C\u043E\u0441\u0442
+    (\u0432\u044B\u043F\u0440\u044F\u043C. \u0431\u043B\u043E\u043A)"
   defaultPosition: {x: 0.004019694, y: -0.0000000068487847, z: -0.08221709}

@@ -136,6 +136,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonSwitchPart
       objectReference: {fileID: 0}
+    - target: {fileID: 4413796329701914759, guid: a77c7ccb920f4934d9be5fc2aa8f72fa, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413796329701914759, guid: a77c7ccb920f4934d9be5fc2aa8f72fa, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413796329701914759, guid: a77c7ccb920f4934d9be5fc2aa8f72fa, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413796329701914759, guid: a77c7ccb920f4934d9be5fc2aa8f72fa, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a77c7ccb920f4934d9be5fc2aa8f72fa, type: 3}
 --- !u!1 &4511724062989805270 stripped

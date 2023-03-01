@@ -13,17 +13,31 @@ public class SelectPart : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (_isSelected)
+        //    {
+        //        GetComponent<MeshRenderer>().material = _defaultMaterial;
+        //    }
+        //    else
+        //    {
+        //        GetComponent<MeshRenderer>().material = _selectedMaterial;
+        //    }
+        //    _isSelected = !_isSelected;
+        //}
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("Click: " + gameObject.name);
+        if (_isSelected)
         {
-            if (_isSelected)
-            {
-                GetComponent<MeshRenderer>().material = _defaultMaterial;
-            }
-            else
-            {
-                GetComponent<MeshRenderer>().material = _selectedMaterial;
-            }
-            _isSelected = !_isSelected;
+            GetComponent<MeshRenderer>().material = _defaultMaterial;
         }
+        else
+        {
+            GetComponent<MeshRenderer>().material = _selectedMaterial;
+        }
+        _isSelected = !_isSelected;
     }
 }

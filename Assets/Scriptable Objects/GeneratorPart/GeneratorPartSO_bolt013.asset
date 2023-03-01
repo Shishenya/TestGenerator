@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370d217662171294f9c63600ee0f4907, type: 3}
   m_Name: GeneratorPartSO_bolt013
   m_EditorClassIdentifier: 
-  namePart: Bolt 013
+  namePart: "\u0411\u043E\u043B\u0442 \u043A\u0440\u0435\u043F\u043B\u0435\u043D\u0438\u044F
+    \u0432\u044B\u043F\u0440\u044F\u043C\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0433\u043E
+    \u0431\u043B\u043E\u043A\u0430 \u21163"
   defaultPosition: {x: 0.0010410246, y: -0.05819597, z: -0.080177896}

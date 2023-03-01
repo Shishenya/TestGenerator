@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370d217662171294f9c63600ee0f4907, type: 3}
   m_Name: GeneratorPartSO_shaiba
   m_EditorClassIdentifier: 
-  namePart: Shaiba
+  namePart: "\u0428\u0430\u0439\u0431\u0430 \u0448\u043A\u0438\u0432\u0430"
   defaultPosition: {x: 0.000000010216033, y: -0.0000000041717483, z: 0.14349528}
