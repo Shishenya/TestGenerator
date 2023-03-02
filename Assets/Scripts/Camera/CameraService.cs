@@ -14,6 +14,11 @@ public class CameraService : MonoBehaviour
         _cameraTransform = Camera.main.transform;
     }
 
+    private void Start()
+    {        
+        //Debug.Log(ProjectResources.Instance.startPanel.name);
+    }
+
     private void Update()
     {
         ScrollCamera();
@@ -45,5 +50,4 @@ public class CameraService : MonoBehaviour
             _generatorModel.transform.Rotate(0, _rotateSpeed * horizontal, 0);
         }
     }
-
 }

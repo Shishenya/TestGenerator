@@ -8,6 +8,17 @@ public class ButtonSwitchPart : MonoBehaviour
 
     [SerializeField] TMP_Text nameButton;
     private GeneratorPart _generatorPart;
+    private OverviewPart _overviewPart;
+
+
+    private void Start()
+    {
+        LoadResources();
+    }
+    private void LoadResources()
+    {
+        _overviewPart = ProjectResources.Instance.overviewPart;
+    }
     public void InitButton(GeneratorPart generatorPart)
     {
         _generatorPart = generatorPart;
@@ -16,8 +27,10 @@ public class ButtonSwitchPart : MonoBehaviour
 
     public void ViewCurrentPart()
     {
-        OverviewPart.Instance.currentViewPart = _generatorPart.gameObject;
-        OverviewPart.Instance.OverviewCurrentEnablePart();
-        OverviewPartPanelUI.Instance.HideSwitchPartsPanelClick();
+        ProjectResources.Instance.mainCanvasUI.HideSwitchPartsPanelClick();
+        ProjectResources.Instance.mainCanvasUI.ShowOverviewPartPanel();
+
+        _overviewPart.currentViewPart = _generatorPart.gameObject;
+        _overviewPart.OverviewCurrentEnablePart();
     }
 }

@@ -13,13 +13,6 @@ public class OverviewPart : MonoBehaviour
     public event Action<GameObject> showPartEvent;
     public event Action<GameObject> hidePartEvent;
 
-    public static OverviewPart Instance;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
     /// <summary>
     /// Убирает свободный обзор всех составных частей генератора 
     /// </summary>
@@ -92,6 +85,7 @@ public class OverviewPart : MonoBehaviour
     {
         EnableAllParts();
         ShowCurrentPart();
+        currentViewPart = null;
         hidePartEvent?.Invoke(null);
     }
 

@@ -6,19 +6,27 @@ using TMPro;
 public class OverviewPartPanelUI : MonoBehaviour
 {
     const string title = "Обзор составной части: ";
+    const string titleEmptyPart = "Выберите деталь для просмотра";
+
     [SerializeField] private TMP_Text _titleText;
-    [SerializeField] private OverviewPart _overviewPart;
-    [SerializeField] private GameObject _switchPartsPanel;
+    private OverviewPart _overviewPart;
+    private GameObject _switchPartsPanel;
 
-    public static OverviewPartPanelUI Instance;
+    // public static OverviewPartPanelUI Instance;
 
-    private void Awake()
+    /// <summary>
+    /// загрузка ресурсов
+    /// </summary>
+    private void LoadResourves()
     {
-        Instance = this;
+        _overviewPart = ProjectResources.Instance.overviewPart;
+        _switchPartsPanel = ProjectResources.Instance.switchPartPanel;
     }
 
     private void OnEnable()
     {
+        LoadResourves();
+
         _overviewPart.showPartEvent += UpdateTitle;
         _overviewPart.hidePartEvent += UpdateTitle;
     }
@@ -35,7 +43,7 @@ public class OverviewPartPanelUI : MonoBehaviour
         }
         else
         {
-            _titleText.text = title;
+            _titleText.text = titleEmptyPart;
         }
     }
 
@@ -45,16 +53,6 @@ public class OverviewPartPanelUI : MonoBehaviour
     public void ReturnButtonClick()
     {
         _overviewPart.ReturnClick();
-    }
-
-    public void ShowSwitchPartsPanelClick()
-    {
-        _switchPartsPanel.SetActive(true);
-    }
-
-    public void HideSwitchPartsPanelClick()
-    {
-        _switchPartsPanel.SetActive(false);
     }
 
 }
