@@ -1477,6 +1477,7 @@ MonoBehaviour:
   - {fileID: 1551996450}
   - {fileID: 471712372}
   - {fileID: 1816817803}
+  _switcherStateService: {fileID: 0}
   currentViewPart: {fileID: 0}
 --- !u!1001 &377081126
 PrefabInstance:

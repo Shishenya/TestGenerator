@@ -34,12 +34,21 @@ public class SelectPart : MonoBehaviour
         _isSelected = !_isSelected;
     }
 
+    public void EnableMaterial()
+    {
+        GetComponent<MeshRenderer>().material = _selectedMaterial;
+    }
+
+    public void DisableMaterial()
+    {
+        GetComponent<MeshRenderer>().material = _defaultMaterial;
+    }
+
     /// <summary>
     /// Включаем выделение
     /// </summary>
     private void EnableSelect()
     {
-        GetComponent<MeshRenderer>().material = _selectedMaterial;
         _selectedPartUI.SetSelectPart(this);
     }
 
@@ -48,7 +57,6 @@ public class SelectPart : MonoBehaviour
     /// </summary>
     public void DisableSelect()
     {
-        GetComponent<MeshRenderer>().material = _defaultMaterial;
-        _selectedPartUI.SetSelectPart(null);
+        _selectedPartUI.SetSelectPart(this);
     }
 }

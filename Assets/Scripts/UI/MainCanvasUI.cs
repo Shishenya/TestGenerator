@@ -155,6 +155,7 @@ public class MainCanvasUI : MonoBehaviour
             case State.OverviewPart: // просматриваем отдельную деталь
                 DisableAllPanel();
                 ShowOverviewPartPanel();
+                HideSelectPartPanel();
                 break;
             case State.OverviewPartSelected: // запущено меню выбора детали
                 ShowSwitchPartsPanelClick();

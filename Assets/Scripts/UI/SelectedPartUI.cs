@@ -30,9 +30,18 @@ public class SelectedPartUI : MonoBehaviour
     public void SetSelectPart(SelectPart selectPart)
     {
 
-        if (_selectPart != null && selectPart != null) _selectPart.DisableSelect();
+        if (_selectPart != null && _selectPart == selectPart)
+        {
+            _selectPart.DisableMaterial();
+            _selectPart = null;
+        }
+        else
+        {
+            if (_selectPart != null) _selectPart.DisableMaterial();
+            _selectPart = selectPart;
+            _selectPart.EnableMaterial();
+        }
 
-        _selectPart = selectPart;
         ShowOrHideSelectedPartPanel();
     }
 
@@ -68,7 +77,8 @@ public class SelectedPartUI : MonoBehaviour
         {
             _selectedPartPanel.SetActive(true);
             namePartText.text = _selectPart.gameObject.GetComponent<GeneratorPart>().generatorPartSO.namePart;
-        } else
+        }
+        else
         {
             _selectedPartPanel.SetActive(false);
         }
