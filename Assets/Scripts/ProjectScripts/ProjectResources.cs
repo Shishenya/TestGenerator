@@ -16,13 +16,14 @@ public class ProjectResources : MonoBehaviour
     [Header("GameObject Panel")]
     #endregion
     #region Tooltip
-    [Tooltip("GameObject Panel from projects")]
+    [Tooltip("GameObjects Panels from project")]
     #endregion
     public GameObject startPanel;
     public GameObject overviewPartPanel;
     public GameObject assemblyPanel;
     public GameObject switchPartPanel;
     public GameObject selectedPartPanel;
+    public GameObject selectedScenaryPanel;
 
 
     #region Base Scripts
@@ -30,10 +31,29 @@ public class ProjectResources : MonoBehaviour
     [Header("Base Scripts")]
     #endregion
     #region Tooltip
-    [Tooltip("Base Scripts in projects")]
+    [Tooltip("Base Scripts in project")]
     #endregion
     public OverviewPart overviewPart;
     public CameraService cameraService;
     public MainCanvasUI mainCanvasUI;
     public SelectedPartUI selectedPartUI;
+    public SwitcherStateService switcherStateService;   
+
+    #region Material
+    [Space(10)]
+    [Header("Material")]
+    #endregion
+    #region Tooltip
+    [Tooltip("Material in project")]
+    #endregion
+    public Material selectedPartMaterial;
+
+    #region Material
+    [Space(10)]
+    [Header("Scenaries")]
+    #endregion
+    #region Tooltip
+    [Tooltip("Scenaries in project")]
+    #endregion
+    public ScenarySO[] scenaries;
 }

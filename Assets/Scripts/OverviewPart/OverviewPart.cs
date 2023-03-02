@@ -8,10 +8,25 @@ public class OverviewPart : MonoBehaviour
     [SerializeField] private GeneratorPart[] _generatorParts;
     public GeneratorPart[] GeneratorParts { get => _generatorParts; }
 
+    private SelectedPartUI _selectedPartUI;
+    private MainCanvasUI _mainCanvasUI;
+    public SwitcherStateService _switcherStateService;
+
     public GameObject currentViewPart = null;
 
     public event Action<GameObject> showPartEvent;
     public event Action<GameObject> hidePartEvent;
+
+    private void Start()
+    {
+        LoadResources();
+    }
+    private void LoadResources()
+    {
+        _selectedPartUI = ProjectResources.Instance.selectedPartUI;
+        _mainCanvasUI = ProjectResources.Instance.mainCanvasUI;
+        _switcherStateService = ProjectResources.Instance.switcherStateService;
+    }
 
     /// <summary>
     /// Убирает свободный обзор всех составных частей генератора 
@@ -87,6 +102,9 @@ public class OverviewPart : MonoBehaviour
         ShowCurrentPart();
         currentViewPart = null;
         hidePartEvent?.Invoke(null);
+
+        _switcherStateService.SetState(State.NonRunScenary);
+        _mainCanvasUI.ShowPanelsByState();
     }
 
 }

@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SelectedPartUI : MonoBehaviour
 {
+    [SerializeField] private TMP_Text namePartText;
     private GameObject _selectedPartPanel;
     private SelectPart _selectPart;
 
-    private void Start()
+    private void Awake()
     {
         LoadResources();
     }
@@ -17,11 +19,17 @@ public class SelectedPartUI : MonoBehaviour
         _selectedPartPanel = ProjectResources.Instance.selectedPartPanel;
     }
 
+    private void OnEnable()
+    {
+        ShowSelectedPartPanel();
+    }
+
     /// <summary>
     /// Установка выделенной детали
     /// </summary>
     public void SetSelectPart(SelectPart selectPart)
     {
+
         if (_selectPart != null && selectPart != null) _selectPart.DisableSelect();
 
         _selectPart = selectPart;
@@ -35,11 +43,34 @@ public class SelectedPartUI : MonoBehaviour
     {
         if (_selectPart == null)
         {
-            _selectedPartPanel.SetActive(false);
+            HideSelectedPartPanel();
         }
         else
         {
+            ShowSelectedPartPanel();
+        }
+    }
+
+    /// <summary>
+    /// Скрывает панель с выделенной деталью
+    /// </summary>
+    public void HideSelectedPartPanel()
+    {
+        _selectedPartPanel.SetActive(false);
+    }
+
+    /// <summary>
+    /// Показывает панель с выбраной деталью
+    /// </summary>
+    public void ShowSelectedPartPanel()
+    {
+        if (_selectPart != null)
+        {
             _selectedPartPanel.SetActive(true);
+            namePartText.text = _selectPart.gameObject.GetComponent<GeneratorPart>().generatorPartSO.namePart;
+        } else
+        {
+            _selectedPartPanel.SetActive(false);
         }
     }
 }

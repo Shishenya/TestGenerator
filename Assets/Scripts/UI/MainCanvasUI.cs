@@ -8,6 +8,11 @@ public class MainCanvasUI : MonoBehaviour
     private GameObject _overviewPartPanel;
     private GameObject _assemblyPanel;
     private GameObject _startPanel;
+    private GameObject _selectedScenaryPanel;
+    private GameObject _selectedPartPanel;
+    private SelectedPartUI _selectedPartUI;
+
+    private SwitcherStateService _switcherStateService;
 
     private void Start()
     {
@@ -20,6 +25,10 @@ public class MainCanvasUI : MonoBehaviour
         _overviewPartPanel = ProjectResources.Instance.overviewPartPanel;
         _assemblyPanel = ProjectResources.Instance.assemblyPanel;
         _startPanel = ProjectResources.Instance.startPanel;
+        _selectedScenaryPanel = ProjectResources.Instance.selectedScenaryPanel;
+        _selectedPartPanel = ProjectResources.Instance.selectedPartPanel;
+        _switcherStateService = ProjectResources.Instance.switcherStateService;
+        _selectedPartUI = ProjectResources.Instance.selectedPartUI;
     }
 
     private void DisableAllPanel()
@@ -28,6 +37,12 @@ public class MainCanvasUI : MonoBehaviour
         _overviewPartPanel.SetActive(false);
         _assemblyPanel.SetActive(false);
         _startPanel.SetActive(false);
+        _selectedScenaryPanel.SetActive(false);
+    }
+
+    private void ShowStartPanel()
+    {
+        _startPanel.SetActive(true);
     }
 
     /// <summary>
@@ -35,15 +50,15 @@ public class MainCanvasUI : MonoBehaviour
     /// </summary>
     public void ShowSwitchPartsPanelClick()
     {
-        // DisableAllPanel();
         _switchPartsPanel.SetActive(true);
     }
 
     /// <summary>
-    /// Скрыть панешль с выбором отдельной детали
+    /// Скрыть панель с выбором отдельной детали
     /// </summary>
     public void HideSwitchPartsPanelClick()
     {
+        // _startPanel.SetActive(true);
         _switchPartsPanel.SetActive(false);
     }
 
@@ -51,8 +66,7 @@ public class MainCanvasUI : MonoBehaviour
     /// Показать верхную панель с выбором деталей
     /// </summary>
     public void ShowOverviewPartPanel()
-    {
-        DisableAllPanel();
+    {        
         _overviewPartPanel.SetActive(true);
     }
 
@@ -63,4 +77,103 @@ public class MainCanvasUI : MonoBehaviour
     {
         _overviewPartPanel.SetActive(false);
     }
+
+    /// <summary>
+    /// Открывает панель с выбором сценария
+    /// </summary>
+    public void ShowSelectedScenaryPanel()
+    {
+        _selectedScenaryPanel.SetActive(true);
+    }
+
+    /// <summary>
+    /// Скрывает панель с выбором сценария
+    /// </summary>
+    public void HideSelectedScenaryPanel()
+    {
+        _switcherStateService.SetState(State.NonRunScenary);
+        ShowPanelsByState();
+    }
+
+    /// <summary>
+    /// Показать панель с выделенной деталью
+    /// </summary>
+    public void ShowSelectPartPanel()
+    {
+        _selectedPartPanel.SetActive(true);
+    }
+
+    /// <summary>
+    /// Убрать панель с выбранной деталью
+    /// </summary>
+    public void HideSelectPartPanel()
+    {
+        _selectedPartPanel.SetActive(false);
+    }
+
+    /// <summary>
+    /// Кнопка "выбрать сценарий"
+    /// </summary>
+    public void ClickButtonSelectScenary()
+    {
+        _switcherStateService.SetState(State.SelectScenary);
+        ShowPanelsByState();
+    }
+
+    /// <summary>
+    /// Кнопка "закрыть панель выбора сценариев"
+    /// </summary>
+    public void ClickButtonCloseSelectScenary()
+    {
+        _switcherStateService.SetState(State.NonRunScenary);
+        ShowPanelsByState();
+    }
+
+    /// <summary>
+    /// Кнопка "выбрать конкретную деталь"
+    /// </summary>
+    public void ClickButtonSelectPart()
+    {
+        _switcherStateService.SetState(State.OverviewPartSelected);
+        ShowPanelsByState();
+    }
+
+    /// <summary>
+    /// Показывает панели в зависимости от статуса
+    /// </summary>
+    public void ShowPanelsByState()
+    {
+        State state = _switcherStateService.GetState();
+
+        switch (state)
+        {
+            case State.NonRunScenary: // нет сценария
+                DisableAllPanel(); 
+                ShowStartPanel();
+                ShowSelectPartPanel();
+                break;
+            case State.OverviewPart: // просматриваем отдельную деталь
+                DisableAllPanel();
+                ShowOverviewPartPanel();
+                break;
+            case State.OverviewPartSelected: // запущено меню выбора детали
+                ShowSwitchPartsPanelClick();
+                break;
+            case State.SelectScenary: // запущено меню выбора сценария
+                DisableAllPanel();
+                ShowStartPanel();
+                HideSelectPartPanel();
+                ShowSelectedScenaryPanel();
+                break;
+            case State.RunScenary: // запущен сценарий
+                break;
+            default:
+                DisableAllPanel();
+                ShowStartPanel();
+                break;
+        }
+
+
+    }
+
 }

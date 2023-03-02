@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SelectPart : MonoBehaviour
 {
-    [SerializeField] private Material _selectedMaterial = null;
+    private Material _selectedMaterial = null;
     private Material _defaultMaterial;
     private bool _isSelected = false;
     private SelectedPartUI _selectedPartUI;
@@ -12,12 +12,12 @@ public class SelectPart : MonoBehaviour
         _defaultMaterial = GetComponent<MeshRenderer>().material;
 
         LoadResources();
-
     }
 
     private void LoadResources()
     {
         _selectedPartUI = ProjectResources.Instance.selectedPartUI;
+        _selectedMaterial = ProjectResources.Instance.selectedPartMaterial;
     }
 
     private void OnMouseDown()

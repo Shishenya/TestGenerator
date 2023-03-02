@@ -7,6 +7,7 @@ public class Bootstrap : MonoBehaviour
     private void Start()
     {        
         LoadStartPanel();
+        LoadStartState();
     }
 
     /// <summary>
@@ -19,5 +20,11 @@ public class Bootstrap : MonoBehaviour
         ProjectResources.Instance.assemblyPanel.SetActive(false);
         ProjectResources.Instance.switchPartPanel.SetActive(false);
         ProjectResources.Instance.selectedPartPanel.SetActive(false);
+        ProjectResources.Instance.selectedScenaryPanel.SetActive(false);
+    }
+
+    private void LoadStartState()
+    {
+        ProjectResources.Instance.switcherStateService.SetState(State.NonRunScenary);
     }
 }
