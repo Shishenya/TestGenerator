@@ -6,10 +6,25 @@ public class SelectPart : MonoBehaviour
     private Material _defaultMaterial;
     private bool _isSelected = false;
     private SelectedPartUI _selectedPartUI;
+    private MeshRenderer _meshRenderer;
+    [SerializeField] private bool _searchMetarialInChildren = false;
+    [SerializeField] private MeshRenderer _childrenRenderer;
 
     private void Start()
     {
-        _defaultMaterial = GetComponent<MeshRenderer>().material;
+        _meshRenderer = GetComponent<MeshRenderer>();
+        if (_meshRenderer != null)
+        {
+            _defaultMaterial = GetComponent<MeshRenderer>().material;
+        }
+        else
+        {
+            if (_searchMetarialInChildren)
+            {
+                _meshRenderer = _childrenRenderer;
+                _defaultMaterial = _childrenRenderer.material;
+            }
+        }
 
         LoadResources();
     }
@@ -36,12 +51,12 @@ public class SelectPart : MonoBehaviour
 
     public void EnableMaterial()
     {
-        GetComponent<MeshRenderer>().material = _selectedMaterial;
+        _meshRenderer.material = _selectedMaterial;
     }
 
     public void DisableMaterial()
     {
-        GetComponent<MeshRenderer>().material = _defaultMaterial;
+        _meshRenderer.material = _defaultMaterial;
     }
 
     /// <summary>

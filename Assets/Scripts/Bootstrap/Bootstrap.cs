@@ -21,6 +21,7 @@ public class Bootstrap : MonoBehaviour
         ProjectResources.Instance.switchPartPanel.SetActive(false);
         ProjectResources.Instance.selectedPartPanel.SetActive(false);
         ProjectResources.Instance.selectedScenaryPanel.SetActive(false);
+        ProjectResources.Instance.scenaryPanel.SetActive(false);
     }
 
     private void LoadStartState()

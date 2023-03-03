@@ -10,6 +10,7 @@ public class MainCanvasUI : MonoBehaviour
     private GameObject _startPanel;
     private GameObject _selectedScenaryPanel;
     private GameObject _selectedPartPanel;
+    private GameObject _scenaryPanel;
     private SelectedPartUI _selectedPartUI;
 
     private SwitcherStateService _switcherStateService;
@@ -27,6 +28,7 @@ public class MainCanvasUI : MonoBehaviour
         _startPanel = ProjectResources.Instance.startPanel;
         _selectedScenaryPanel = ProjectResources.Instance.selectedScenaryPanel;
         _selectedPartPanel = ProjectResources.Instance.selectedPartPanel;
+        _scenaryPanel = ProjectResources.Instance.scenaryPanel;
         _switcherStateService = ProjectResources.Instance.switcherStateService;
         _selectedPartUI = ProjectResources.Instance.selectedPartUI;
     }
@@ -38,6 +40,7 @@ public class MainCanvasUI : MonoBehaviour
         _assemblyPanel.SetActive(false);
         _startPanel.SetActive(false);
         _selectedScenaryPanel.SetActive(false);
+        _scenaryPanel.SetActive(false);
     }
 
     private void ShowStartPanel()
@@ -112,6 +115,30 @@ public class MainCanvasUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Показать панель сборки/разборки
+    /// </summary>
+    public void ShowAssemblyPanel()
+    {
+        _assemblyPanel.SetActive(true);
+    }
+
+    /// <summary>
+    /// Скрыть панель сборки разборки
+    /// </summary>
+    public void HideAssemblyPanel()
+    {
+        _assemblyPanel.SetActive(false);
+    }
+
+    /// <summary>
+    /// Показать панель со сценарием
+    /// </summary>
+    public void ShowScenaryPanel()
+    {
+        _scenaryPanel.SetActive(true);
+    }
+
+    /// <summary>
     /// Кнопка "выбрать сценарий"
     /// </summary>
     public void ClickButtonSelectScenary()
@@ -135,6 +162,25 @@ public class MainCanvasUI : MonoBehaviour
     public void ClickButtonSelectPart()
     {
         _switcherStateService.SetState(State.OverviewPartSelected);
+        ShowPanelsByState();
+    }
+
+    /// <summary>
+    /// Кнопка "Сбросить сценарий"
+    /// </summary>
+    public void ClickButtonResetScenary()
+    {
+        ProjectService.Instance.ResetScenary();
+        _switcherStateService.SetState(State.NonRunScenary);
+        ShowPanelsByState();
+    }
+
+    /// <summary>
+    /// Кнопка "запустить сценарий"
+    /// </summary>
+    public void ClickButtonRunScenary()
+    {
+        _switcherStateService.SetState(State.RunScenary);
         ShowPanelsByState();
     }
 
@@ -167,6 +213,10 @@ public class MainCanvasUI : MonoBehaviour
                 ShowSelectedScenaryPanel();
                 break;
             case State.RunScenary: // запущен сценарий
+                DisableAllPanel();
+                ShowAssemblyPanel();
+                ShowSelectPartPanel();
+                ShowScenaryPanel();
                 break;
             default:
                 DisableAllPanel();

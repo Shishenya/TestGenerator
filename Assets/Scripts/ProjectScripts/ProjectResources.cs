@@ -24,6 +24,7 @@ public class ProjectResources : MonoBehaviour
     public GameObject switchPartPanel;
     public GameObject selectedPartPanel;
     public GameObject selectedScenaryPanel;
+    public GameObject scenaryPanel;
 
 
     #region Base Scripts

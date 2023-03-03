@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScenary: "\u0420\u0430\u0437\u0431\u043E\u0440\u043A\u0430 \u0413\u0435\u043D\u0435\u0440\u0430\u0442\u043E\u0440\u0430
     \u043D\u0430 Lada Granta"
+  stepsScenary:
+  - {fileID: 11400000, guid: faa43e78dbcc45f4dbc8e5c943add5e0, type: 2}
+  - {fileID: 11400000, guid: 0f57d005c34320c42a92b135884d747b, type: 2}
+  - {fileID: 11400000, guid: b61410ed2e4f88345ba6cbbceeb05247, type: 2}

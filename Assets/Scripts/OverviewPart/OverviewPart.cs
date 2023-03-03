@@ -103,7 +103,9 @@ public class OverviewPart : MonoBehaviour
         currentViewPart = null;
         hidePartEvent?.Invoke(null);
 
-        _switcherStateService.SetState(State.NonRunScenary);
+        // ќпредел€ем сост€оние возврата исход€ из запущен ли сценарий
+        State returnState = (ProjectService.Instance.ScenaryRun)? State.RunScenary: State.NonRunScenary;
+        _switcherStateService.SetState(returnState);
         _mainCanvasUI.ShowPanelsByState();
     }
 
