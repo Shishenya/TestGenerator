@@ -1407,7 +1407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
       propertyPath: m_Name
-      value: Generator_Lada_Granta_pod_razbor_for_Unity3D_r4
+      value: Generator_Lada_Granta_pod_razbor_for_Unity3D_r4 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
       propertyPath: m_IsActive
@@ -1545,6 +1545,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400024, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000000004782827
+      objectReference: {fileID: 0}
+    - target: {fileID: 400024, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000000007300673
+      objectReference: {fileID: 0}
+    - target: {fileID: 400024, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0833247
+      objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.081420325
@@ -1557,6 +1569,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.037761763
       objectReference: {fileID: 0}
+    - target: {fileID: 2300022, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d89efaa211960f3478b5cfa8a20b16e2, type: 2}
+    - target: {fileID: 9500000, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 78b7e97211ada8649afddb44d9657eb7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
 --- !u!1 &3132643034560278491 stripped
