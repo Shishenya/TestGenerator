@@ -7,4 +7,7 @@ public class ScenarySO : ScriptableObject
 {
     public string nameScenary;
     public StepScenarySO[] stepsScenary;
+
+    public AnimationClip defaultPosition;
+
 }

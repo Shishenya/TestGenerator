@@ -5,14 +5,15 @@ using System;
 
 public class OverviewPart : MonoBehaviour
 {
+    [SerializeField] Animator _generatorAnimator;
     [SerializeField] private GeneratorPart[] _generatorParts;
     public GeneratorPart[] GeneratorParts { get => _generatorParts; }
 
     private SelectedPartUI _selectedPartUI;
     private MainCanvasUI _mainCanvasUI;
-    public SwitcherStateService _switcherStateService;
+    private SwitcherStateService _switcherStateService;
 
-    public GameObject currentViewPart = null;
+    [HideInInspector] public GameObject currentViewPart = null;
 
     public event Action<GameObject> showPartEvent;
     public event Action<GameObject> hidePartEvent;
@@ -76,26 +77,9 @@ public class OverviewPart : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        TestUpdate();
-    }
-
-    private void TestUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            ReturnClick();
-        }
-
-        if (Input.GetKeyDown(KeyCode.PageUp))
-        {
-            OverviewCurrentEnablePart();
-            // ShowCurrentPart();
-        }
-
-    }
-
+    /// <summary>
+    /// Кнопка возврата к текущему сценарию
+    /// </summary>
     public void ReturnClick()
     {
         EnableAllParts();
@@ -107,6 +91,18 @@ public class OverviewPart : MonoBehaviour
         State returnState = (ProjectService.Instance.ScenaryRun)? State.RunScenary: State.NonRunScenary;
         _switcherStateService.SetState(returnState);
         _mainCanvasUI.ShowPanelsByState();
+    }
+
+    /// <summary>
+    /// Сброс сценария.Возвращаем все детали в исходное положение 
+    /// </summary>
+    public void ClickButtonResetScenary()
+    {
+        AnimationClip clipDefault = ProjectService.Instance.CurrentScenary.scenarySO.defaultPosition;
+        if (clipDefault!=null && _generatorAnimator!=null)
+        {
+            _generatorAnimator.Play(clipDefault.name);
+        }
     }
 
 }
