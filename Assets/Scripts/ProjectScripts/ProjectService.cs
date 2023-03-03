@@ -6,7 +6,7 @@ public class ProjectService : MonoBehaviour
 {
     private bool _scenaryRun = false;
     public bool ScenaryRun { get => _scenaryRun; }
-    private Scenary _currentScenary;
+    private Scenary _currentScenary = null;
     public Scenary CurrentScenary { get => _currentScenary; }
 
     private static ProjectService _instance;
@@ -16,6 +16,7 @@ public class ProjectService : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        _currentScenary = null;
     }
 
     /// <summary>

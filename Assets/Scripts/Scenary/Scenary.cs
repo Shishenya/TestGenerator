@@ -13,4 +13,15 @@ public class Scenary
         currentStep = 0;
     }
 
+    /// <summary>
+    /// Следующий шаг
+    /// </summary>
+    public void NextStep()
+    {
+        if (currentStep + 1 < scenarySO.stepsScenary.Length)
+        {
+            currentStep++;
+        }
+    }
+
 }
