@@ -7,6 +7,7 @@ public class SelectPart : MonoBehaviour
     private bool _isSelected = false;
     private SelectedPartUI _selectedPartUI;
     private MeshRenderer _meshRenderer;
+
     [SerializeField] private bool _searchMetarialInChildren = false;
     [SerializeField] private MeshRenderer _childrenRenderer;
 
@@ -51,24 +52,18 @@ public class SelectPart : MonoBehaviour
 
     public void EnableMaterial()
     {
-        // _meshRenderer.material = _selectedMaterial;
-
-        Material[] materials = transform.GetComponent<MeshRenderer>().materials;
+        Material[] materials = _meshRenderer.materials;
         materials[0] = _defaultMaterial;
         materials[1] = _selectedMaterial;
-        transform.GetComponent<MeshRenderer>().materials = materials;
-
-        // _meshRenderer.materials[1] = _selectedMaterial;
+        _meshRenderer.materials = materials;
     }
 
     public void DisableMaterial()
     {
-        // _meshRenderer.material = _defaultMaterial;
-        //_meshRenderer.materials[1] = _defaultMaterial;
-        Material[] materials = transform.GetComponent<MeshRenderer>().materials;
+        Material[] materials = _meshRenderer.materials;
         materials[0] = _defaultMaterial;
         materials[1] = _defaultMaterial;
-        transform.GetComponent<MeshRenderer>().materials = materials;
+        _meshRenderer.materials = materials;
     }
 
     /// <summary>

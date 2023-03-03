@@ -7,5 +7,5 @@ public class StepScenarySO : ScriptableObject
 {
     public string title;
     public string description;
-    public GeneratorPartSO[] usePart; // детали, которые задействованы в процессе
+    public AnimationClip clipRun;
 }
