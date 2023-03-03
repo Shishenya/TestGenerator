@@ -1473,7 +1473,7 @@ MonoBehaviour:
   - {fileID: 1583809876}
   - {fileID: 611634154}
   - {fileID: 1816817811}
-  - {fileID: 1816817808}
+  - {fileID: 0}
   - {fileID: 1551996450}
   - {fileID: 471712372}
   - {fileID: 1816817803}
@@ -3551,6 +3551,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4413796328515327049, guid: a77c7ccb920f4934d9be5fc2aa8f72fa, type: 3}
   m_PrefabInstance: {fileID: 1174783717}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1197100044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100064, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
+  m_PrefabInstance: {fileID: 1816817797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1197100045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197100044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e803c88773444a34390036bd00976f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _generatorPartSO: {fileID: 11400000, guid: a694899f93c7a884c9b852ffa882ca31, type: 2}
+  isOverviewPart: 0
+--- !u!114 &1197100046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197100044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8262da976f69c0f4392247b7dbfe3c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &1197100047
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197100044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300030, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
 --- !u!1001 &1224598493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4714,6 +4759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Generator_Lada_Granta_pod_razbor_for_Unity3D_r4
       objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100024, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4932,30 +4981,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _generatorPartSO: {fileID: 11400000, guid: 2c2f6343d54432741936e9249cd1d3fb, type: 2}
   isOverviewPart: 0
---- !u!1 &1816817806 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100062, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
-  m_PrefabInstance: {fileID: 1816817797}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1816817807 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100032, guid: f2401280d4a71a2448a4ed97cf3d12cf, type: 3}
   m_PrefabInstance: {fileID: 1816817797}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1816817808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816817806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e803c88773444a34390036bd00976f69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _generatorPartSO: {fileID: 11400000, guid: a694899f93c7a884c9b852ffa882ca31, type: 2}
-  isOverviewPart: 0
 --- !u!114 &1816817809
 MonoBehaviour:
   m_ObjectHideFlags: 0
