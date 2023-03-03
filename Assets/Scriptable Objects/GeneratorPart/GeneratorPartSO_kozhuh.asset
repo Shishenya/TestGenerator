@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   namePart: "\u041A\u043E\u0436\u0443\u0445"
   defaultPosition: {x: 0.0000000047828266, y: -0.0000000073006725, z: -0.0833247}
+  disassemblyPosition: {x: 0.0000000047828266, y: -0.0000000073006725, z: -0.5}

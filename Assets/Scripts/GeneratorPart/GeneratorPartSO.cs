@@ -7,4 +7,5 @@ public class GeneratorPartSO : ScriptableObject
 {
     public string namePart;
     public Vector3 defaultPosition;
+    public Vector3 disassemblyPosition;
 }

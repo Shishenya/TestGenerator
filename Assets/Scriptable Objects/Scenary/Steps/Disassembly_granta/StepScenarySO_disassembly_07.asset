@@ -17,4 +17,4 @@ MonoBehaviour:
     \u0433\u0430\u0439\u043A\u0443 \u0438 \u0441\u043D\u0438\u043C\u0430\u0435\u043C
     \u0432\u044B\u043F\u0440\u044F\u043C\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439
     \u0431\u043B\u043E\u043A"
-  usePart: []
+  clipRun: {fileID: 7400000, guid: c5263e90f92d9f34595a32bffce6a33e, type: 2}
