@@ -1,34 +1,17 @@
 using UnityEngine;
 
-public class CameraService : MonoBehaviour
+public class KeyboardControllerService : InputContollerService
 {
-    [SerializeField] private GameObject _generatorModel;
-    [SerializeField] private float _whellSpeed = 10f;
-    [SerializeField] private float _minZPosition = -10f;
-    [SerializeField] private float _maxZPosition = -2;
-    [SerializeField] private float _rotateSpeed = 1f;
-    private Transform _cameraTransform;
 
-    private void Awake()
-    {
-        _cameraTransform = Camera.main.transform;
-    }
+    private string description = "Для вращения генератора используете клавиши 'Влево (A)' и 'Вправо (D)'." +
+        "Для приближение и отдаления используете колесико мышки."; // описание управления
 
-    private void Start()
-    {        
-        //Debug.Log(ProjectResources.Instance.startPanel.name);
-    }
-
-    private void Update()
-    {
-        ScrollCamera();
-        RotateGenerator();
-    }
+    public override string descriptionInput { get => description; }
 
     /// <summary>
     /// Приближение и отдаление
     /// </summary>
-    private void ScrollCamera()
+    public override void ScrollCamera()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
@@ -42,7 +25,7 @@ public class CameraService : MonoBehaviour
     /// <summary>
     /// Поворот генератора и его частей
     /// </summary>
-    private void RotateGenerator()
+    public override void RotateGenerator()
     {
         float horizontal = Input.GetAxis("Horizontal");
         if (horizontal != 0f)

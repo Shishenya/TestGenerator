@@ -35,7 +35,7 @@ public class ProjectResources : MonoBehaviour
     [Tooltip("Base Scripts in project")]
     #endregion
     public OverviewPart overviewPart;
-    public CameraService cameraService;
+    public InputContollerService inputContollerService;
     public MainCanvasUI mainCanvasUI;
     public SelectedPartUI selectedPartUI;
     public SwitcherStateService switcherStateService;   

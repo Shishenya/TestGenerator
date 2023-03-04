@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MainCanvasUI : MonoBehaviour
 {
+
+    [SerializeField] private TMP_Text _inputDescriptionText;
+    
     private GameObject _switchPartsPanel;
     private GameObject _overviewPartPanel;
     private GameObject _assemblyPanel;
@@ -12,12 +14,15 @@ public class MainCanvasUI : MonoBehaviour
     private GameObject _selectedPartPanel;
     private GameObject _scenaryPanel;
     private SelectedPartUI _selectedPartUI;
+    private InputContollerService _inputContollerService;
 
     private SwitcherStateService _switcherStateService;
 
     private void Start()
     {
         LoadResourves();
+
+        _inputDescriptionText.text = _inputContollerService.descriptionInput;
     }
 
     private void LoadResourves()
@@ -31,6 +36,8 @@ public class MainCanvasUI : MonoBehaviour
         _scenaryPanel = ProjectResources.Instance.scenaryPanel;
         _switcherStateService = ProjectResources.Instance.switcherStateService;
         _selectedPartUI = ProjectResources.Instance.selectedPartUI;
+        _inputContollerService = ProjectResources.Instance.inputContollerService;
+
     }
 
     private void DisableAllPanel()
@@ -190,6 +197,16 @@ public class MainCanvasUI : MonoBehaviour
     public void ClickBottonCloseProgram()
     {
         Application.Quit();
+    }
+
+    /// <summary>
+    /// Кнопка Генератора сбросить прогресс сценария и собрать генератор
+    /// </summary>
+    public void ClickButtonAllResetAndBegin()
+    {
+        ProjectService.Instance.ResetScenary();
+        _switcherStateService.SetState(State.NonRunScenary);
+        ShowPanelsByState();
     }
 
     /// <summary>

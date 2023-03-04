@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class SwitchPartPanelUI : MonoBehaviour
 {
-    [SerializeField] private OverviewPart _overviewPart;
+    private OverviewPart _overviewPart;
     [SerializeField] private GameObject _buttonPart;
     [SerializeField] private GameObject _buttonsParent;
 
     private bool _isCreated = false;
 
+    private void LoadResources()
+    {
+        _overviewPart = ProjectResources.Instance.overviewPart;
+    }
+
     private void OnEnable()
     {
+        LoadResources();
+
         CreateAllPartsButtons();
         _isCreated = true;
     }

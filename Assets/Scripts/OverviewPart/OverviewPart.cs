@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
 public class OverviewPart : MonoBehaviour
 {
-    [SerializeField] Animator _generatorAnimator;
     [SerializeField] private GeneratorPart[] _generatorParts;
     public GeneratorPart[] GeneratorParts { get => _generatorParts; }
 
-    private SelectedPartUI _selectedPartUI;
     private MainCanvasUI _mainCanvasUI;
     private SwitcherStateService _switcherStateService;
 
@@ -24,7 +20,6 @@ public class OverviewPart : MonoBehaviour
     }
     private void LoadResources()
     {
-        _selectedPartUI = ProjectResources.Instance.selectedPartUI;
         _mainCanvasUI = ProjectResources.Instance.mainCanvasUI;
         _switcherStateService = ProjectResources.Instance.switcherStateService;
     }
@@ -91,18 +86,6 @@ public class OverviewPart : MonoBehaviour
         State returnState = (ProjectService.Instance.ScenaryRun)? State.RunScenary: State.NonRunScenary;
         _switcherStateService.SetState(returnState);
         _mainCanvasUI.ShowPanelsByState();
-    }
-
-    /// <summary>
-    /// Сброс сценария.Возвращаем все детали в исходное положение 
-    /// </summary>
-    public void ClickButtonResetScenary()
-    {
-        AnimationClip clipDefault = ProjectService.Instance.CurrentScenary.scenarySO.defaultPosition;
-        if (clipDefault!=null && _generatorAnimator!=null)
-        {
-            _generatorAnimator.Play(clipDefault.name);
-        }
     }
 
 }
