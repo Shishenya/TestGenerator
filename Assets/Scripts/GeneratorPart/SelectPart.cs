@@ -4,6 +4,8 @@ public class SelectPart : MonoBehaviour
 {
     private Material _selectedMaterial = null;
     private Material _defaultMaterial;
+    private SwitcherStateService _switcherStateService;
+
     private bool _isSelected = false;
     private SelectedPartUI _selectedPartUI;
     private MeshRenderer _meshRenderer;
@@ -34,10 +36,14 @@ public class SelectPart : MonoBehaviour
     {
         _selectedPartUI = ProjectResources.Instance.selectedPartUI;
         _selectedMaterial = ProjectResources.Instance.selectedPartMaterial;
+        _switcherStateService = ProjectResources.Instance.switcherStateService;
     }
 
     private void OnMouseDown()
     {
+
+        if (_switcherStateService.GetState() == State.OverviewPartSelected || _switcherStateService.GetState() == State.SelectScenary) return;
+
         if (_isSelected)
         {
             DisableSelect();

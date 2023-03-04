@@ -69,7 +69,7 @@ public class MainCanvasUI : MonoBehaviour
     /// Показать верхную панель с выбором деталей
     /// </summary>
     public void ShowOverviewPartPanel()
-    {        
+    {
         _overviewPartPanel.SetActive(true);
     }
 
@@ -185,6 +185,14 @@ public class MainCanvasUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Кнопка "закрыть программу"
+    /// </summary>
+    public void ClickBottonCloseProgram()
+    {
+        Application.Quit();
+    }
+
+    /// <summary>
     /// Показывает панели в зависимости от статуса
     /// </summary>
     public void ShowPanelsByState()
@@ -194,7 +202,7 @@ public class MainCanvasUI : MonoBehaviour
         switch (state)
         {
             case State.NonRunScenary: // нет сценария
-                DisableAllPanel(); 
+                DisableAllPanel();
                 ShowStartPanel();
                 ShowSelectPartPanel();
                 break;
