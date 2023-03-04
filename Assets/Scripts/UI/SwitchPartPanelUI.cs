@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SwitchPartPanelUI : MonoBehaviour
@@ -19,8 +18,7 @@ public class SwitchPartPanelUI : MonoBehaviour
     {
         LoadResources();
 
-        CreateAllPartsButtons();
-        _isCreated = true;
+        CreateAllPartsButtons();       
     }
 
 
@@ -33,8 +31,9 @@ public class SwitchPartPanelUI : MonoBehaviour
         if (_isCreated) return;
 
         _buttonPart.SetActive(false);
+        var sortParts = _overviewPart.GeneratorParts.OrderBy(element => element.generatorPartSO.namePart);
 
-        foreach (GeneratorPart generatorPart in _overviewPart.GeneratorParts)
+        foreach (GeneratorPart generatorPart in sortParts)
         {
             GameObject currentButton = Instantiate(_buttonPart, _buttonsParent.transform);
 
@@ -45,6 +44,8 @@ public class SwitchPartPanelUI : MonoBehaviour
             }
 
         }
+
+        _isCreated = true;
     }
     
 }

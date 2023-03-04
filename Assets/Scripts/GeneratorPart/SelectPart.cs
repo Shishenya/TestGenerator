@@ -15,17 +15,18 @@ public class SelectPart : MonoBehaviour
 
     private void Start()
     {
-        _meshRenderer = GetComponent<MeshRenderer>();
-        if (_meshRenderer != null)
+
+        if (_searchMetarialInChildren)
         {
-            _defaultMaterial = GetComponent<MeshRenderer>().material;
+            _meshRenderer = _childrenRenderer;
+            _defaultMaterial = _childrenRenderer.material;
         }
         else
         {
-            if (_searchMetarialInChildren)
+            _meshRenderer = GetComponent<MeshRenderer>();
+            if (_meshRenderer != null)
             {
-                _meshRenderer = _childrenRenderer;
-                _defaultMaterial = _childrenRenderer.material;
+                _defaultMaterial = GetComponent<MeshRenderer>().material;
             }
         }
 

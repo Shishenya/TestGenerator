@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370d217662171294f9c63600ee0f4907, type: 3}
   m_Name: GeneratorPartSO_vint2
   m_EditorClassIdentifier: 
-  namePart: "\u0412\u0438\u043D\u0442 (\u0431\u043E\u043B\u0442) \u043A\u0440\u0435\u043F\u043B\u0435\u043D\u0438\u044F
-    \u0449\u0438\u0442\u043A\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u0435\u043B\u044F
+  namePart: "\u0411\u043E\u043B\u0442 (\u0432\u0438\u043D\u0442) \u043A\u0440\u0435\u043F\u043B\u0435\u043D\u0438\u044F
+    \u0449\u0435\u0442\u043A\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u0435\u043B\u044F
     1"
   defaultPosition: {x: -0.057214726, y: -0.038021658, z: -0.07800562}

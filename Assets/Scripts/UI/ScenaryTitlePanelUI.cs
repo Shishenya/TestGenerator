@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -11,7 +9,8 @@ public class ScenaryTitlePanelUI : MonoBehaviour
     private void OnEnable()
     {
         _scenary = ProjectService.Instance.CurrentScenary;
-        titleText.text = _scenary.scenarySO.nameScenary;
+        if (_scenary != null)
+            titleText.text = _scenary.scenarySO.nameScenary;
     }
 
 }
