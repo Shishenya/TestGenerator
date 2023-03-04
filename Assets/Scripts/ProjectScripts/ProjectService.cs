@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectService : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
     private bool _scenaryRun = false;
     public bool ScenaryRun { get => _scenaryRun; }
     private Scenary _currentScenary = null;
@@ -25,6 +26,13 @@ public class ProjectService : MonoBehaviour
     public void RunScenary(ScenarySO scenarySO)
     {
         _currentScenary = new Scenary(scenarySO);
+
+        AnimationClip defaultClip = scenarySO.defaultPosition;
+        if (defaultClip != null && _animator != null)
+        {
+            _animator.Play(defaultClip.name);
+        }
+
         _scenaryRun = true;
     }
 
