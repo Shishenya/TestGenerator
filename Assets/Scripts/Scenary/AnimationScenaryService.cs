@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnimationScenaryService : MonoBehaviour
 {
@@ -14,6 +13,12 @@ public class AnimationScenaryService : MonoBehaviour
         if (_generatorAnimator != null && clip != null)
         {
             _generatorAnimator.Play(clip.name);
-        } 
+        }
+
+        if (this.gameObject.GetComponent<Button>() != null)
+        {
+            this.gameObject.GetComponent<Button>().interactable = false;
+        }
+
     }
 }

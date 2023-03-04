@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ScenaryStepPanelUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text titleStep;
-    [SerializeField] private TMP_Text descriptionText;
-    [SerializeField] private GameObject buttonNextStep;
+    [SerializeField] private TMP_Text _titleStep;
+    [SerializeField] private TMP_Text _descriptionText;
+    [SerializeField] private GameObject _buttonNextStep;
+    [SerializeField] private Button _showAnimationButton;
 
 
     private void OnEnable()
@@ -28,6 +30,7 @@ public class ScenaryStepPanelUI : MonoBehaviour
 
             UpdateText(step, scenarySO);
             CheckHasBeenNextStep(step, scenarySO);
+            CheckHasBeenShowAnimation(step, scenarySO);
         }
     }
 
@@ -51,14 +54,14 @@ public class ScenaryStepPanelUI : MonoBehaviour
             string title = scenarySO.stepsScenary[step].title;
             string description = scenarySO.stepsScenary[step].description;
 
-            titleStep.text = title;
-            descriptionText.text = description;
+            _titleStep.text = title;
+            _descriptionText.text = description;
         }
         else
         {
             string error = "Error!";
-            titleStep.text = error;
-            descriptionText.text = error;
+            _titleStep.text = error;
+            _descriptionText.text = error;
         }
     }
 
@@ -69,13 +72,28 @@ public class ScenaryStepPanelUI : MonoBehaviour
     {
         if (step + 1 < scenarySO.stepsScenary.Length)
         {
-            buttonNextStep.SetActive(true);
+            _buttonNextStep.SetActive(true);
         }
         else
         {
-            buttonNextStep.SetActive(false);
+            _buttonNextStep.SetActive(false);
         }
 
+    }
+
+    /// <summary>
+    /// ѕровер€ет, можно ли показать анимацию
+    /// </summary>
+    private void CheckHasBeenShowAnimation(int step, ScenarySO scenarySO)
+    {
+        if (scenarySO.stepsScenary[step].clipRun == null)
+        {
+            _showAnimationButton.interactable = false;
+        }
+        else
+        {
+            _showAnimationButton.interactable = true;
+        }
     }
 
 }

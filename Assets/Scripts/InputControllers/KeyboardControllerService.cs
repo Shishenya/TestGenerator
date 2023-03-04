@@ -31,6 +31,6 @@ public class KeyboardControllerService : InputContollerService
         if (horizontal != 0f)
         {
             _generatorModel.transform.Rotate(0, _rotateSpeed * horizontal, 0);
-        }
+        }        
     }
 }
