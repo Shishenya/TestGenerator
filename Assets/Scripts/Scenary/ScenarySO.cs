@@ -10,4 +10,13 @@ public class ScenarySO : ScriptableObject
 
     public AnimationClip defaultPosition;
 
+    #region Validation
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        HelperUtilities.ValidateCheckEmptyString(this, nameof(nameScenary), nameScenary);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(defaultPosition), defaultPosition);
+    }
+#endif
+    #endregion
 }
