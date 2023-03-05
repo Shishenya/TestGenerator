@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class AnimationScenaryService : MonoBehaviour
 {
     [SerializeField] Animator _generatorAnimator;
+    [SerializeField] Button _nextStepButton;
     private Scenary _scenary;
 
     public void ButtonClickShowAnimation()
@@ -19,6 +20,8 @@ public class AnimationScenaryService : MonoBehaviour
         {
             this.gameObject.GetComponent<Button>().interactable = false;
         }
+
+        _nextStepButton.interactable = true;
 
     }
 }

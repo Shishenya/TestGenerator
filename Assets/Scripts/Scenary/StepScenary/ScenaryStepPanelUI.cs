@@ -28,7 +28,7 @@ public class ScenaryStepPanelUI : MonoBehaviour
 
             UpdateText(step, scenarySO);
             CheckHasBeenNextStep(step, scenarySO);
-            CheckHasBeenShowAnimation(step, scenarySO);
+            CheckHasBeenShowAnimation(step, scenarySO);            
         }
     }
 
@@ -87,10 +87,12 @@ public class ScenaryStepPanelUI : MonoBehaviour
         if (scenarySO.stepsScenary[step].clipRun == null)
         {
             _showAnimationButton.interactable = false;
+            _buttonNextStep.gameObject.GetComponent<Button>().interactable = true;
         }
         else
         {
             _showAnimationButton.interactable = true;
+            _buttonNextStep.gameObject.GetComponent<Button>().interactable = false;
         }
     }
 

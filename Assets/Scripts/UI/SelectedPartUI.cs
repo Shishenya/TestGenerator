@@ -74,7 +74,11 @@ public class SelectedPartUI : MonoBehaviour
         if (_selectPart != null)
         {
             _selectedPartPanel.SetActive(true);
-            namePartText.text = _selectPart.gameObject.GetComponent<GeneratorPart>().generatorPartSO.namePart;
+            string namePart = (_selectPart._searchGeneratorPartInParrent)?
+                               _selectPart.gameObject.GetComponentInParent<GeneratorPart>().generatorPartSO.namePart
+                               : _selectPart.gameObject.GetComponent<GeneratorPart>().generatorPartSO.namePart;
+
+            namePartText.text = namePart;
         }
         else
         {

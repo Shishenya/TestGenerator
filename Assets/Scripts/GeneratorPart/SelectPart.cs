@@ -10,25 +10,14 @@ public class SelectPart : MonoBehaviour
     private SelectedPartUI _selectedPartUI;
     private MeshRenderer _meshRenderer;
 
-    [SerializeField] private bool _searchMetarialInChildren = false;
-    [SerializeField] private MeshRenderer _childrenRenderer;
+    public bool _searchGeneratorPartInParrent = false; // Искать generatorPart у родителя?
+    [SerializeField] private MeshRenderer[] _relatedRenderer; // Связаные эелменты Renderer
 
     private void Start()
     {
 
-        if (_searchMetarialInChildren)
-        {
-            _meshRenderer = _childrenRenderer;
-            _defaultMaterial = _childrenRenderer.material;
-        }
-        else
-        {
-            _meshRenderer = GetComponent<MeshRenderer>();
-            if (_meshRenderer != null)
-            {
-                _defaultMaterial = GetComponent<MeshRenderer>().material;
-            }
-        }
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _defaultMaterial = GetComponent<MeshRenderer>().material;
 
         LoadResources();
     }
@@ -63,6 +52,17 @@ public class SelectPart : MonoBehaviour
         materials[0] = _defaultMaterial;
         materials[1] = _selectedMaterial;
         _meshRenderer.materials = materials;
+
+        if (_relatedRenderer != null && _relatedRenderer.Length != 0)
+        {
+            foreach (MeshRenderer meshRenderer in _relatedRenderer)
+            {
+                Material[] materialsInRelatedRenderer = meshRenderer.materials;
+                materialsInRelatedRenderer[0] = _defaultMaterial;
+                materialsInRelatedRenderer[1] = _selectedMaterial;
+                meshRenderer.materials = materialsInRelatedRenderer;
+            }
+        }
     }
 
     public void DisableMaterial()
@@ -71,6 +71,17 @@ public class SelectPart : MonoBehaviour
         materials[0] = _defaultMaterial;
         materials[1] = _defaultMaterial;
         _meshRenderer.materials = materials;
+
+        if (_relatedRenderer != null && _relatedRenderer.Length != 0)
+        {
+            foreach (MeshRenderer meshRenderer in _relatedRenderer)
+            {
+                Material[] materialsInRelatedRenderer = meshRenderer.materials;
+                materialsInRelatedRenderer[0] = _defaultMaterial;
+                materialsInRelatedRenderer[1] = _defaultMaterial;
+                meshRenderer.materials = materialsInRelatedRenderer;
+            }
+        }
     }
 
     /// <summary>
@@ -79,6 +90,7 @@ public class SelectPart : MonoBehaviour
     private void EnableSelect()
     {
         _selectedPartUI.SetSelectPart(this);
+
     }
 
     /// <summary>
