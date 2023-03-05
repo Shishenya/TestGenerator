@@ -753,7 +753,7 @@ MonoBehaviour:
   selectedScenaryPanel: {fileID: 1925652772}
   scenaryPanel: {fileID: 4101464}
   overviewPart: {fileID: 366360563}
-  inputContollerService: {fileID: 1585480854}
+  inputContollerService: {fileID: 1218981704}
   mainCanvasUI: {fileID: 1321636377}
   selectedPartUI: {fileID: 695556562}
   switcherStateService: {fileID: 1742511995}
@@ -3430,6 +3430,7 @@ Transform:
   m_Children:
   - {fileID: 1585480853}
   - {fileID: 1286154271}
+  - {fileID: 1218981703}
   m_Father: {fileID: 693470634}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3915,6 +3916,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1218981702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1218981703}
+  - component: {fileID: 1218981704}
+  m_Layer: 0
+  m_Name: HybridControllerService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1218981703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218981702}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 981624604}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1218981704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218981702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96f21b3acef2364c9416e27c1cf4eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _generatorModel: {fileID: 1012643376}
+  _whellSpeed: 10
+  _minZPosition: -10
+  _maxZPosition: -2
+  _rotateSpeed: 1
 --- !u!1001 &1224598493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5119,7 +5168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1585480853
 Transform:
   m_ObjectHideFlags: 0
