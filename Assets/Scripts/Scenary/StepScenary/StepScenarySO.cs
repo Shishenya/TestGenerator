@@ -8,6 +8,8 @@ public class StepScenarySO : ScriptableObject
     public AnimationClip clipRun;
     public bool clipShouldNotBe = false; // в текущем шаге не требуется клип
 
+    public GeneratorPartSO[] needPartClickToClipShow; // по какой части надо кликнуть, чтобы пошла анимация
+
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()

@@ -18,3 +18,9 @@ MonoBehaviour:
     \u0432\u044B\u043F\u0440\u044F\u043C\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0433\u043E
     \u0431\u043B\u043E\u043A\u0430."
   clipRun: {fileID: 7400000, guid: 384f1b20abedd64458fa82923777de2e, type: 2}
+  clipShouldNotBe: 0
+  needPartClickToClipShow:
+  - {fileID: 11400000, guid: 169693c30c698df45b19a4981653f5a1, type: 2}
+  - {fileID: 11400000, guid: d5a0fe26a4c8ff44bb6aee8c3f4f73ba, type: 2}
+  - {fileID: 11400000, guid: 3a10419671111de40900ce890ac5ce81, type: 2}
+  - {fileID: 11400000, guid: fb602f5b1ff29794c8462489a385cd4b, type: 2}
