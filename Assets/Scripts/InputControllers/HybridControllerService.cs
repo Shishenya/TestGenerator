@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HybridControllerService : InputContollerService
 {
-    private string description = "Для вращения генератора используете клавиши 'Влево (A)' и 'Вправо (D)' или средную кнопку мыши." +
+    private string description = "Для вращения генератора используете клавиши 'Влево (A)' и 'Вправо (D)' или среднюю кнопку мыши." +
        "Для приближение и отдаления используете колесико мышки."; // описание управления
 
     public override string descriptionInput { get => description; }
